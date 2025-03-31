@@ -11,7 +11,7 @@ on:
     branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  #-- workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -34,3 +34,27 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      # Set up node js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
+          node-version: '20'
+      # Install deps
+      - name: Install deps
+        run: npm i
+      # Build  app for production
+      - name: Build app bundle
+        run: npm run build:prod 
+      # Route file renaming
+      #- name: Rename index for routing
+      #  run: mv dist/angular-poc-v2/index.html dist/angular-poc-v2/404.html
+      # Deploy in GitHub pages
+      - name: Deploy to pages
+        uses: crazy-max/ghaction-github-pages@v4.1.0
+        with:
+          # Build directory to deploy
+          build_dir: dist/angular-poc-v2
+        env: 
+          GITHUB_TOKEN : ${{secrets.GITHUB_TOKEN}}          

@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 export const routes: Routes = [
     {
@@ -13,5 +14,9 @@ export const routes: Routes = [
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
+    },
+    {
+        path: '**',
+        component: NotfoundComponent,
     },
 ];

@@ -12,4 +12,9 @@ import { HeaderComponent } from "./header/header.component";
 })
 export class AppComponent {
   title = 'angular-poc-v2';
+  serverIp : string;
+  constructor() {
+    this.serverIp = window.location.host;
+    console.log('App component serverIp: ',this.serverIp);
+  }
 }

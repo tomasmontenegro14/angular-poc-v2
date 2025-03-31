@@ -1,0 +1,1 @@
+import{Aa as n,Ba as o,Ea as i,Fa as r,T as a}from"./chunk-QUEDRORY.js";var s=(()=>{class t{static{this.\u0275fac=function(e){return new(e||t)}}static{this.\u0275cmp=a({type:t,selectors:[["app-about"]],standalone:!0,features:[r],decls:4,vars:0,template:function(e,m){e&1&&(n(0,"h1"),i(1,"About"),o(),n(2,"p"),i(3,"About your app."),o())}})}}return t})();export{s as AboutComponent};
